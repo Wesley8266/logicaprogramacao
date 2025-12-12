@@ -12,13 +12,13 @@ def novo_pedido(cardapio):
                     preco = i["preco"]
                     quantidade = int(input("quantidade: "))
                     subtotal = preco * quantidade
-                    pedido.append(i)
-                    pedido = {
+                    resultado = {
                     "id": id,
                     "item": i["id"],
                     "quantidade": quantidade,
                     "total": subtotal
                 }
+                    pedido.append(resultado)
                     id += 1
                 return pedido
 

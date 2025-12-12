@@ -13,8 +13,8 @@ while True:
     op = input("o que deseja fazer:")
 
     if op == "1":
-        listacardapio = carregar_cardapio(listacardapio)
-        exibir_cardapio(listacardapio)
+        cardapio = carregar_cardapio(listacardapio)
+        exibir_cardapio(cardapio)
     if op == "2":
         adicionar_pedido(listacardapio)
     if op == "3":

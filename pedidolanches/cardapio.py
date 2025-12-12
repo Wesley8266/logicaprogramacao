@@ -22,3 +22,4 @@ def buscar_item(cardapio, id_item):
     print(tabulate([item], headers = "keys", tablefmt = "fancy_grid"))
 
 
+
