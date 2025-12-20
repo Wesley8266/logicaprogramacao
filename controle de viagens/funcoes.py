@@ -26,24 +26,44 @@ def buscar_motorista(listaviagens):
     motorista = input("qual motorista deseja consultar: ")
     for i in listaviagens:
         if motorista == i["motorista"]:
-            viagem_m.append(i)
-    print(tabulate([viagem_m], headers = "keys", tablefmt = "fancy_grid"))
+            viagem_m.append(([i["motorista"], i["destino"], i["distancia"], i["gasto_combustivel"], i["consumo"]]))
+    print(tabulate(
+        viagem_m, 
+        headers= ["motorista","destino","distancia","gasto_combustivel","consumo"], tablefmt = "fancy_grid"))
+
 
 
 def viagem_mais_cara(listaviagens):
-    maior = 0
-    for i in listaviagens:
-        if i["gasto_combustivel"] >= maior:
-           maior = i["gasto_combustivel"]
-    return maior
+    from tabulate import tabulate
+
+def viagem_mais_cara(lista_viagens):
+    maior = None
+    viagem_mais_cara = None
+
+    for viagem in lista_viagens:
+        if maior is None or viagem["gasto_combustivel"] > maior:
+            maior = viagem["gasto_combustivel"]
+            viagem_mais_cara = viagem
+
+    lista_m = [[
+        viagem_mais_cara["motorista"],
+        viagem_mais_cara["destino"],
+        viagem_mais_cara["distancia"],
+        viagem_mais_cara["gasto_combustivel"],
+        viagem_mais_cara["consumo"]
+    ]]
+
+    print(tabulate(
+        lista_m,
+        headers=["motorista", "destino", "distancia", "gasto_combustivel", "consumo"],
+        tablefmt="fancy_grid"
+    ))
 
 
 def media_consumo(listaviagens):
-    total = 0
-    distancia = 0
+    soma = 0
     for viagem in listaviagens:
-        total += viagem["gasto_combustivel"]
-        distancia += viagem["distancia"]
-    media = total / distancia
-    print(f"consumo:{media}")
+        soma += viagem["consumo"]
+    media = soma / len(listaviagens)
+    return f"consumo geral das viagens: {media}"
         
