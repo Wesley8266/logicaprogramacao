@@ -8,8 +8,11 @@ print("0-sair____________________")
 
 
 while True:
+    operacao= input("realizar operaçao: ")
+    if operacao == "0":
+        print("programa encerrado! ")
+        break
     a = float(input("digite o 1° numero: "))
-    operacao= input("escolha a operaçao: ")
     b = float(input("digite o 2° numero: "))
     
     if operacao == "1":
@@ -20,8 +23,7 @@ while True:
         print(multiplicacao(a,b))
     elif operacao == "4":
         print(divisao(a,b))
-    elif operacao == "0":
-        print("programa encerrado! ")
-        break
+
+
 
 
