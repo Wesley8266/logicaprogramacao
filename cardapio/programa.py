@@ -1,21 +1,29 @@
 from funcao import *
 
-print( ''' Menu:
-        1- Ver cardápio
-        2- Adicionar item ao pedido
-        3- Ver pedido
-        4- Remover item
-        0- Finalizar ''' )
+cardapio = carregar_cardapio()
+pedido = []
 
-listacardapio = []
-
+print("1 - Ver cardápio")
+print("2 - Adicionar item")
+print("3 - Ver pedido")
+print("4 - Remover item")
+print("0 - Sair")
 while True:
-    op = input("o que deseja fazer:")
+
+    op = input("Opção: ")
 
     if op == "1":
-        cardapio = carregar_cardapio(listacardapio)
         exibir_cardapio(cardapio)
-    if op == "2":
-        adicionar_pedido(listacardapio)
-    if op == "3":
-        exibir_pedido(listacardapio)
+
+    elif op == "2":
+        exibir_cardapio(cardapio)
+        adicionar_pedido(cardapio, pedido)
+
+    elif op == "3":
+        exibir_pedido(pedido)
+
+    elif op == "4":
+        remover_item(pedido)
+
+    elif op == "0":
+        break
